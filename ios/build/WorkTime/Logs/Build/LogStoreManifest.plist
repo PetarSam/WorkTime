@@ -5,6 +5,41 @@
 	<key>logFormatVersion</key>
 	<integer>10</integer>
 	<key>logs</key>
-	<dict/>
+	<dict>
+		<key>50178AC8-3322-4161-885B-BC2295F22942</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>50178AC8-3322-4161-885B-BC2295F22942.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>WorkTime project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>WorkTime</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace WorkTime with scheme WorkTime and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>599003904.70355904</real>
+			<key>timeStoppedRecording</key>
+			<real>599003905.392851</real>
+			<key>title</key>
+			<string>Building workspace WorkTime with scheme WorkTime and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>50178AC8-3322-4161-885B-BC2295F22942</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

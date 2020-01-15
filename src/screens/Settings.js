@@ -18,12 +18,12 @@ const Settings = ({ navigation }) => {
         <View>
             <Text>Settings</Text>
             <Button 
-                title="Sign Out"
-                onPress={handleSignOut}
+                title="Send your hours"
+                onPress={()  => console.log()}
             />
             <Button 
-                title="Send your hours"
-                onPress={sendHours}
+                title="Sign Out"
+                onPress={handleSignOut}
             />
         </View>
     )
