@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native'
 
-import DatePicker from '../components/DatePicekr'
+import Modal from 'react-native-modal';
+import DateTimePicker from '@react-native-community/datetimepicker'
+
 import { auth } from '../config';
 
 export default Settings = ({ navigation }) => {
@@ -13,10 +15,18 @@ export default Settings = ({ navigation }) => {
      .catch(err => console.error(err))
   };
 
+  // Add useContext
   const [email, setEmail] = useState('email@test.com')
-  const [dateFrom, setDateFrom] = useState((new Date('2020-06-12T14:42:42').toDateString()))
-  const [dateTo, setDateTo] = useState((new Date('2020-06-13T14:42:42').toDateString()))
+  const [dateFrom, setDateFrom] = useState((new Date('2020-06-12T14:42:42')))
+  const [dateTo, setDateTo] = useState((new Date('2020-06-13T14:42:42')))
+
+  const [usingDate, setUsingDate] = useState()
   const [visible, setVisible] = useState(false)
+
+  const dateChange = (date) => {
+    setVisible(!visible);
+    setUsingDate(date);
+  }
 
     return (
         <View style={styles.main}>
@@ -31,13 +41,23 @@ export default Settings = ({ navigation }) => {
             <View>
               <View style={styles.input}>
                 <Text>Date From:</Text>
-                <TextInput style={styles.textInput} value={dateFrom}  onTouchStart={() => setVisible(true)}/>
-                <DatePicker visible={visible} />
+                <TextInput style={styles.textInput} value={dateFrom.toDateString()}  onTouchStart={() => dateChange('from')}/>
               </View>
               <View style={styles.input}>
                 <Text>Date To:</Text>
-                <TextInput style={styles.textInput} value={dateTo}  />
+                <TextInput  style={dateTo > dateFrom ? styles.textInput :styles.textInputError} value={dateTo.toDateString()}  onTouchStart={() => dateChange('to')}/>
               </View>
+            </View>
+            <View>
+              <Modal isVisible={visible}>
+                <View style={styles.modal}>
+                  <DateTimePicker value={usingDate === "from" ? dateFrom : dateTo} onChange={(e,date) => usingDate === "from" ? setDateFrom(date) : setDateTo(date) }/>
+                  <Button 
+                    title="Close"
+                    onPress={()  => setVisible(!visible)}
+                  />
+                </View>
+            </Modal> 
             </View>
           </View>
           <View style={styles.footer}>
@@ -49,7 +69,7 @@ export default Settings = ({ navigation }) => {
               title="Sign Out"
               onPress={handleSignOut}
             />   
-          </View>   
+          </View>  
         </View>
     )
 }
@@ -84,7 +104,22 @@ const styles = StyleSheet.create({
       width: '80%',
       backgroundColor: 'white'
     },
+    textInputError: {
+      height: 40,
+      borderColor: 'red',
+      color: 'red',
+      borderWidth: 1,
+      marginTop: 8,
+      paddingLeft:10,
+      width: '80%',
+      backgroundColor: 'white'
+    },
     text: {
       fontSize: 30
+    },
+    modal: { 
+      backgroundColor:'white', 
+      padding:'2%', 
+      borderRadius: 10 
     }
   });

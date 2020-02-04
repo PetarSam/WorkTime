@@ -6,11 +6,11 @@
 	<dict>
 		<key>Base.lproj/LaunchScreen.nib/objects-13.0+.nib</key>
 		<data>
-		kBk0WHXMe4vXvv4LhIwMOJuzgIs=
+		gtMRZSwk9rt+sJan+wnGy/ZmcyQ=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib/runtime.nib</key>
 		<data>
-		T2k8a7KiAxGkGNOOcEWWFWQBuD0=
+		Oq7vP0Ye67HThWQtF5emgKdCBZw=
 		</data>
 		<key>Frameworks/XCTAutomationSupport.framework/Info.plist</key>
 		<data>
@@ -75,7 +75,7 @@
 		</data>
 		<key>PlugIns/WorkTimeTests.xctest.dSYM/Contents/Resources/DWARF/WorkTimeTests</key>
 		<data>
-		VsdIYGgX56A0YKZyOjY0WKEM8ww=
+		8wh0EScx2BjbWo4LclIcBPNbHKI=
 		</data>
 		<key>PlugIns/WorkTimeTests.xctest/Info.plist</key>
 		<data>
@@ -83,7 +83,7 @@
 		</data>
 		<key>PlugIns/WorkTimeTests.xctest/WorkTimeTests</key>
 		<data>
-		BYVBHX8ye1jmDu2Rsxh1MAALRcQ=
+		9jCFN+fKfOc9tF2PisH+oPlq3Bw=
 		</data>
 		<key>PlugIns/WorkTimeTests.xctest/_CodeSignature/CodeResources</key>
 		<data>
@@ -96,22 +96,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kBk0WHXMe4vXvv4LhIwMOJuzgIs=
+			gtMRZSwk9rt+sJan+wnGy/ZmcyQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			Yh2/Pkkv6hD9fAw98tPYUHopMGo/SxzKnCQPedii3VY=
+			H5AYJYyD3ZWlDmcuSrEjpXt9qqMVjibOBU2l+1wx/Ic=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			T2k8a7KiAxGkGNOOcEWWFWQBuD0=
+			Oq7vP0Ye67HThWQtF5emgKdCBZw=
 			</data>
 			<key>hash2</key>
 			<data>
-			upyqelwwQ5/IB6WWaSekkp9mi9DMwnjmaQPZp2W6QJU=
+			T/vvO+DiKLGIEZwlrWu8rVxJuY6DqpFjTtiuo7NwMPU=
 			</data>
 		</dict>
 		<key>Frameworks/XCTAutomationSupport.framework/Info.plist</key>
@@ -252,11 +252,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			VsdIYGgX56A0YKZyOjY0WKEM8ww=
+			8wh0EScx2BjbWo4LclIcBPNbHKI=
 			</data>
 			<key>hash2</key>
 			<data>
-			nKF7yOiGb83+WQNDuNTxGc47g5b/RGjcCA0DSYY4XAM=
+			15NnKnBfRAa/emlUc2gu7zXd/sLUY9l7nyUfARQqq6Y=
 			</data>
 		</dict>
 		<key>PlugIns/WorkTimeTests.xctest/Info.plist</key>
@@ -274,11 +274,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BYVBHX8ye1jmDu2Rsxh1MAALRcQ=
+			9jCFN+fKfOc9tF2PisH+oPlq3Bw=
 			</data>
 			<key>hash2</key>
 			<data>
-			4uAXWqcETCaxgAGHxw050H3PLFfFouM0CvdWfAawKAI=
+			Yyzw5JI6BMf/KOcOKf0f9vuzVyATfWCec1GK8wJmjkg=
 			</data>
 		</dict>
 		<key>PlugIns/WorkTimeTests.xctest/_CodeSignature/CodeResources</key>
