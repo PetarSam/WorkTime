@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 
-import { auth } from '../config'
+import { auth } from '../config';
 
 export default SignUp = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -12,7 +12,7 @@ export default SignUp = ({ navigation }) => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then(() => navigation.navigate('Home'))
-      .catch(error => setErrorMessage(error.message))
+      .catch((error) => setErrorMessage(error.message));
   };
   return (
     <View style={styles.container}>
@@ -29,7 +29,7 @@ export default SignUp = ({ navigation }) => {
       <TextInput
         secureTextEntry
         placeholder='Password'
-        autoCapitalize='none' 
+        autoCapitalize='none'
         style={styles.textInput}
         onChangeText={(password) => setPassword(password)}
         value={password}
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderWidth: 1,
     marginTop: 8,
-    paddingLeft:10
+    paddingLeft: 10
   },
   text: {
     fontSize: 30
