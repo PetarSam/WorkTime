@@ -16,26 +16,64 @@ import TimeImg from '../graphics/time.png';
 import ItemHead from '../components/ItemHead';
 import Item from '../components/Item';
 
+import { auth, db } from '../config';
+
 const Home = ({ navigation }) => {
   const [total, setTotal] = useState('38:46');
+  const [opened, setOpened] = useState(false);
+  const [begin, setBegin] = useState(new Date());
+  const [end, setEnd] = useState(new Date());
+  // function writeUserData(userId, name, email, imageUrl) {
+  //   firebase.database().ref('users/' + userId).set({
+  //     username: name,
+  //     email: email,
+  //     profile_picture : imageUrl
+  //   });
+  // }
+  const email2string = (email) =>
+    email
+      .split('@')
+      .join('')
+      .split('.')
+      .join('');
+  const handleNewTime = () => {
+    db.ref('users/' + email2string(auth.currentUser.email) + '/' + begin)
+      .set({
+        begin: begin,
+        end: end
+      })
+      .then((res) => console.log(res));
+    // db.ref(auth.currentUser.email).set({
+    //   total:total
+    // })
+  };
   return (
     <View style={styles.main}>
       <View style={styles.leftie}>
-        <Button
-          title='Add time'
-          onPress={() => navigation.navigate('Settings')}
-        />
+        <Button title='Add time' onPress={() => setOpened(true)} />
         <Button
           title='Settings'
           onPress={() => navigation.navigate('Settings')}
         />
       </View>
       <View>
-        <Modal isVisible={false} style={styles.modal}>
-          <DateTimePicker mode='datetime' value={new Date()} />
-          <DateTimePicker mode='datetime' value={new Date()} />
-          <Button title='Add' />
-          <Button title='Close' />
+        <Modal isVisible={opened} style={styles.modal}>
+          <Text style={styles.modalText}>From:</Text>
+          <DateTimePicker
+            mode='datetime'
+            value={begin}
+            onChange={(e, date) => setBegin(date)}
+          />
+          <Text style={end >= begin ? styles.modalText : styles.modalTextError}>
+            To:
+          </Text>
+          <DateTimePicker
+            mode='datetime'
+            value={end}
+            onChange={(e, date) => setEnd(date)}
+          />
+          <Button title='Add' onPress={handleNewTime} />
+          <Button title='Close' onPress={() => setOpened(false)} />
         </Modal>
       </View>
       <View style={styles.center}>
@@ -71,6 +109,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%'
   },
+  modalText: {
+    padding: 15,
+    marginTop: 10,
+    fontSize: 20,
+    textAlign: 'center'
+  },
+  modalTextError: {
+    padding: 15,
+    marginTop: 10,
+    fontSize: 20,
+    textAlign: 'center',
+    backgroundColor: 'red'
+  },
   items: {
     marginTop: 20
   },
@@ -93,7 +144,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: '2%',
     borderRadius: 10,
-    maxHeight: '60%',
+    maxHeight: '70%',
     marginTop: 120
   }
 });
