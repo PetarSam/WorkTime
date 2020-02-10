@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -23,6 +23,7 @@ const Home = ({ navigation }) => {
   const [opened, setOpened] = useState(false);
   const [begin, setBegin] = useState(new Date());
   const [end, setEnd] = useState(new Date());
+  const [data, setData] = useState([])
   // function writeUserData(userId, name, email, imageUrl) {
   //   firebase.database().ref('users/' + userId).set({
   //     username: name,
@@ -36,13 +37,23 @@ const Home = ({ navigation }) => {
       .join('')
       .split('.')
       .join('');
+
+  // Attach an asynchronous callback to read the data at our posts reference
+  useEffect(() => {
+    db.ref(`logs/${email2string(auth.currentUser.email)}`).on("value", function(snapshot) {
+    setData(snapshot.val());
+    })
+  }, [])
+  
+
   const handleNewTime = () => {
-    db.ref('users/' + email2string(auth.currentUser.email) + '/' + begin)
+    db.ref(`logs/${email2string(auth.currentUser.email)}/${end.valueOf()}`)
       .set({
-        begin: begin,
-        end: end
+       "total":total,
+       "begin":begin.valueOf(),
+       "end":end.valueOf()
       })
-      .then((res) => console.log(res));
+      .then((res) => console.log(begin));
     // db.ref(auth.currentUser.email).set({
     //   total:total
     // })
@@ -85,7 +96,10 @@ const Home = ({ navigation }) => {
       <View style={styles.items}>
         <ItemHead />
         <ScrollView>
-          <Item />
+          {
+            Object.keys(data).map(i => <Item values={data[i]}/>)
+          }
+        
         </ScrollView>
       </View>
     </View>

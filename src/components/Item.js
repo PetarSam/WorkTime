@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const ItemComponent = ({ tFrom, tTO }) => {
+const ItemComponent = ({ values}) => {
+  const fromDate = new Date(values["begin"]*10)
   return (
     <View style={styles.item}>
-      <Text style={styles.text}>tFrom.Date</Text>
+      <Text style={styles.text}>{console.log(fromDate.getDate()+'-'+fromDate.getMonth()+'-'+fromDate.getYear())}</Text>
       <Text style={styles.text}>tFrom.Hour</Text>
       <Text style={styles.text}>tTo.Hour</Text>
       <Text style={styles.text}>Total</Text>
