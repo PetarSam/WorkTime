@@ -15,15 +15,17 @@ const ItemComponent = () => {
 const styles = StyleSheet.create({
   item: {
     display: 'flex',
-    justifyContent: 'space-around',
+    width: '100%',
+    justifyContent: 'space-between',
     flexDirection: 'row',
     backgroundColor: 'purple',
-    padding: 10,
-    width: '100%'
+    paddingVertical: 10,
+    paddingHorizontal: 20
   },
   text: {
     fontWeight: '700',
-    textAlign: 'center'
+    textAlign: 'center',
+    width: '25%'
   }
 });
 export default ItemComponent;

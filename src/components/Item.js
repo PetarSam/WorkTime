@@ -1,14 +1,27 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
+import timeDiff from '../helpers/timeDiff'
 
-const ItemComponent = ({ values}) => {
-  const fromDate = new Date(values["begin"]*10)
+const ItemComponent = ({ values }) => {
+  const fromDate = new Date(values['begin']);
+  const endDate = new Date(values['end']);
+  const total = new Date();
   return (
     <View style={styles.item}>
-      <Text style={styles.text}>{console.log(fromDate.getDate()+'-'+fromDate.getMonth()+'-'+fromDate.getYear())}</Text>
-      <Text style={styles.text}>tFrom.Hour</Text>
-      <Text style={styles.text}>tTo.Hour</Text>
-      <Text style={styles.text}>Total</Text>
+      <Text style={styles.text}>
+        {fromDate.getDate() +
+          '-' +
+          fromDate.getMonth() +
+          '-' +
+          fromDate.getFullYear()}
+      </Text>
+      <Text style={styles.text}>
+        {fromDate.getHours() + ':' + fromDate.getMinutes()}
+      </Text>
+      <Text style={styles.text}>
+        {endDate.getHours() + ':' + endDate.getMinutes()}
+      </Text>
+        <Text style={styles.text}>{timeDiff(endDate,fromDate)}</Text>
     </View>
   );
 };
@@ -16,11 +29,16 @@ const ItemComponent = ({ values}) => {
 const styles = StyleSheet.create({
   item: {
     display: 'flex',
-    maxWidth: '100%',
     justifyContent: 'space-around',
     flexDirection: 'row',
     backgroundColor: '#D3D3D3',
-    padding: 10
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    width: '100%',
+  },
+  text: {
+    textAlign: 'center',
+    width: '25%'
   }
 });
 export default ItemComponent;
